@@ -1,0 +1,36 @@
+{
+    "@context": [
+        "https://openanatomy.org/schema.oa.jsonld",
+        {
+            "cspace": "https://brain-map.info/schema/cspace#"
+        }
+    ],
+    "@graph": [
+        { "@comment": "Images." },
+        {
+            "@id": "#templateImage_t1",
+            "@type": ["DataSource", "Image", "NiiImage"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": "#templateNii_t1"
+        },
+        {
+            "@id": "#templateImage_t2",
+            "@type": ["DataSource", "Image", "NiiImage"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": "#templateNii_t2"
+        },
+        {
+            "@id": "#templateImage_pd",
+            "@type": ["DataSource", "Image", "NiiImage"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": "#templateNii_pd"
+        },
+        {
+            "@id": "#atlasLabelMap",
+            "@type": ["DataSource", "Image", "LabelMapImage", "NiiImage"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "derivedFrom": ["#templateImage_t1", "#templateImage_t2", "#templateImage_pd"],
+            "dataSource": "#atlasNii_labelMap"
+        } 
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "@context": "https://openanatomy.org/schema",
+    "@graph": [
+      {
+          "@id": "#imageActor_t1",
+          "@type": ["Actor", "ImageActor"],
+          "image": "#templateImage_t1",
+          "style": {
+              "imageContrast": {
+                  "window": 255,
+                  "level": 128
+              }
+          }
+      },
+      {
+        "@id": "#imageActor_t3",
+        "@type": ["Actor", "ImageActor"],
+        "image": "#templateImage_t3",
+        "style": {
+            "imageContrast": {
+                "window": 255,
+                "level": 128
+            }
+        }
+    },
+    {
+        "@id": "#imageActor_t1",
+        "@type": ["Actor", "ImageActor"],
+        "image": "#templateImage_pd",
+        "style": {
+            "imageContrast": {
+                "window": 255,
+                "level": 128
+            }
+        }
+    }
+    ]
+}

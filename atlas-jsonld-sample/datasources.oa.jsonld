@@ -1,0 +1,54 @@
+{
+    "@context": [
+        "https://openanatomy.org/schema.oa.jsonld",
+        {
+            "cspace": "https://brain-map.info/schema/cspace#"
+        }
+    ],
+    "@graph": [
+        { "@comment": "Data sources for NII files." },
+
+        { "@comment": "First, long hand with explicit nodes and @ids" },
+        {
+            "@id": "#templateNii_t1",
+            "@type": ["DataSource", "DataSet", "NiiDataSet"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": "#reader_t1"
+        },
+
+        {
+            "@id": "#reader_t1",
+            "@type": ["DataSource", "NetDataSource"],
+            "srcURL": "#templateURL_t1"
+        },
+
+        { "@comment": "Alternatively, shorthand with nested blank nodes." },
+
+        {
+            "@id": "#templateNii_t2",
+            "@type": ["DataSource", "DataSet", "NiiDataSet"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": {
+                "srcURL": "#templateURL_t2"
+            }
+        },
+
+        {
+            "@id": "#templateNii_pd",
+            "@type": ["DataSource", "DataSet", "NiiDataSet"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": {
+                "srcURL": "#templateURL_pd"
+            }
+        },
+
+        {
+            "@id": "#atlasNii_labelMap",
+            "@type": ["DataSource", "DataSet", "NiiDataSet"],
+            "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
+            "dataSource": {
+                "srcURL": "#atlasURL_labelMap"
+            }
+        }
+    ]
+}
