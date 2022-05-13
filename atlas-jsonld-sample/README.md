@@ -63,3 +63,6 @@ By convention, files end with the extension "oa.jsonld". They are semantically J
 * TODO: Define Stage (or Scene) objects to provide different rendering configurations of Actors.
 
 * TODO: Define the Atlas description node that includes pointers to all other nodes, defining what is exported, and also providing metadata about the atlas itself.
+
+* TODO: formalize the JSON-LD context / schema, overall and for each node.
+
