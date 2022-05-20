@@ -8,14 +8,14 @@
     "@graph": [
         {
             "@id": "cspace:mni_icbm152_nlin_sym_09b",
-            "@type": ["CoordinateFrame", "NamedCoordinateFrame"],
+            "@type": ["CoordinateSpace", "NamedCoordinateSpace"],
             "name": "mni_icbm152_nlin_sym_09b",
             "indentifier": "mni_icbm152_nlin_sym_09b",
             "about": "urn:isbn:9780128009321"
         },
         {
             "@id": "cspace:allen_ccf_v3-1",
-            "@type": ["CoordinateFrame", "NamedCoordinateFrame"],
+            "@type": ["CoordinateSpace", "NamedCoordinateSpace"],
             "name": "allen_ccf_v3-1",
             "indentifier": "allen_ccf_v3-1",
             "url": "http://uri.interlex.org/base/ilx_0777134"
