@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "oa": "https://www.openanatomy.org/schema/",
+        "OrderedGroup": {
+            "@id": "oa:OrderedGroup",
+            "@type": "@id",
+            "@context": {
+                "members": {
+                    "@id": "oa:OrderedGroup/members",
+                    "@type": "@id",
+                    "@container": "@list"
+                }
+            }
+        }
+    }
+}

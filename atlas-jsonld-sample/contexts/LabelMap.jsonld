@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "oa": "https://www.openanatomy.org/schema/",
+        "schema": "http://schema.org/",
+
+        "LabelMapImage": {
+            "@id": "oa:LabelMapImage",
+            "@type": "@id"
+        },
+        
+        "LabelMaskShape": {
+            "@id": "oa:LabelMaskShape",
+            "@type": "@id",
+            "@context": {
+                "labelValue": "oa:LabelMaskShape/labelValue",
+                "includeLabelValues": {
+                    "@id": "oa:LabelMaskShape/includeLabelValues",
+                    "@container": "@set"
+                }
+            }
+        }
+    }
+}

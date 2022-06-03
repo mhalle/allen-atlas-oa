@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "oa": "https://www.openanatomy.org/schema/",
+        "schema": "http://schema.org/",
+        "NetDataSource": {
+            "@id": "oa:NetDataSource",
+            "@type": "@id",
+            "@context": {
+                "srcURL": {
+                    "@id": "oa:NetDataSource/srcURL",
+                    "@type": "@id"
+                },
+                "sha256": "oa:sha256"
+            }
+        }
+    }
+}

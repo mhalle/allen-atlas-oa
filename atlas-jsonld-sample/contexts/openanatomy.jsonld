@@ -1,0 +1,17 @@
+{
+    "@context": [
+        { "@version": 1.1, "@import": "/contexts/Structure.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/Actor.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/URL.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/DataSource.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/NetDataSource.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/DataSet.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/Image.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/LabelMap.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/Space.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/StructureActor.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/AllenAtlasStructure.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/Nii.jsonld" },
+        { "@version": 1.1, "@import": "/contexts/utils.jsonld" }
+    ]
+}

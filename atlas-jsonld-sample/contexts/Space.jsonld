@@ -1,0 +1,21 @@
+{
+    "@context": {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "oa": "https://www.openanatomy.org/schema/",
+        "schema": "http://schema.org/",
+        "CoordinateSpace": {
+            "@id": "oa:CoordinateSpace",
+            "@type": "@id"
+        },
+
+        "NamedCoordinateSpace": {
+            "@id": "oa:NamedCoordinateSpace",
+            "@type": "@id",
+            "@context": {
+                "name": "schema:name",
+                "identifier": "schema:identifier",
+                "about": "schema:about"
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "oa": "https://www.openanatomy.org/schema/",
+        "DataSet": {
+            "@id": "oa:DataSet",
+            "@type": "@id",
+            "@context": {
+            }
+        }
+    }
+}
