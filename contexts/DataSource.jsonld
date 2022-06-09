@@ -8,10 +8,6 @@
                     "@id": "oa:coordinateSpace",
                     "@type": "@id"
                 },
-                "derivedFrom": {
-                    "@id": "oa:derivedFrom",
-                    "@type": "@id"
-                },
                 "dataSource": {
                     "@id": "oa:dataSource",
                     "@type": "@id"

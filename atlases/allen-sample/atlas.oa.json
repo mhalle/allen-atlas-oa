@@ -27,6 +27,16 @@
             "name": "Test Allen Mouse Atlas for Cell Locator Project",
             "license": {
                 "schema:url": "https://slicer.readthedocs.io/en/latest/user_guide/about.html#license"
+            },
+            "contributor": {
+                "@id": "#person_mhalle",
+                "@type": ["schema:Person", "SchemaOrgMetadata"],
+                "schema:givenName": "Michael",
+                "schema:familyName": "Halle",
+                "schema:honoraryPrefix": "Dr.",
+                "schema:honorarySuffix": "PhD",
+                "affiliation": "#organization_bwh"
+
             }
         }
     ]
