@@ -1,5 +1,4 @@
 {
-  "@context": "https://openanatomy.org/schema",
   "@graph": [
     {
       "@id": "#actor_997",

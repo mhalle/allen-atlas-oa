@@ -1,7 +1,7 @@
 {
     "@context": {
-        "DataSet": {
-            "@id": "oa:DataSet",
+        "Layer": {
+            "@id": "oa:Layer",
             "@type": "@id"
         }
     }

@@ -1,6 +1,5 @@
 {
     "@context": [
-        "https://openanatomy.org/schema.oa.jsonld",
         {
             "cspace": "https://brain-map.info/schema/cspace#"
         }

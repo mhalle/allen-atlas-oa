@@ -1,8 +1,5 @@
 {
     "@context": {
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "oa": "https://www.openanatomy.org/schema/",
-        "schema": "http://schema.org/",
         "DataSource": {
             "@id": "oa:DataSource",
             "@type": "@id",

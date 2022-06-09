@@ -60,7 +60,7 @@ By convention, files end with the extension "oa.jsonld". They are semantically J
 
 * `spaces.oa.jsonld` - provide objects to specify named coordinate spaces. 
 
-* TODO: Define Stage (or Scene) objects to provide different rendering configurations of Actors.
+* TODO: Define Stage (or Scene) objects to provide different rendering configurations of Actors. 
 
 * TODO: Define the Atlas description node that includes pointers to all other nodes, defining what is exported, and also providing metadata about the atlas itself.
 

@@ -1,6 +1,5 @@
 {
     "@context": [
-        "https://openanatomy.org/schema.oa.jsonld",
         {
             "cspace": "https://brain-map.info/schema/cspace#"
         }
@@ -30,6 +29,7 @@
             "@type": ["DataSource", "DataSet", "NiiDataSet"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
             "dataSource": {
+                "@type": ["DataSource", "NetDataSource"],
                 "sha256": "2fb616f4203eb6cd9975d6274033eb6c1e9cdb1ff35680dd9da23596be9072e7",
                 "srcURL": "#templateURL_t2"
             }
@@ -40,6 +40,7 @@
             "@type": ["DataSource", "DataSet", "NiiDataSet"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
             "dataSource": {
+                "@type": ["DataSource", "NetDataSource"],
                 "sha256": "5eb7eb78c6136813ea0313065f6d225fa1ea382ef8002b112ac06cc9796f6af1",
                 "srcURL": "#templateURL_pd"
             }
@@ -50,6 +51,7 @@
             "@type": ["DataSource", "DataSet", "NiiDataSet"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
             "dataSource": {
+                "@type": ["DataSource", "NetDataSource"],
                 "sha256": "9fc36db43b7f88bfa390862f21fef22ae4e6a19495d06689635dbc5a3857e431",
                 "srcURL": "#atlasURL_labelMap"
             }

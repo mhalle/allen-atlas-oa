@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "Import": {
+            "@id": "oa:Import",
+            "@type": "@id",
+            "@context": {
+                "src": {
+                    "@id": "oa:Import/src",
+                    "@type": "xsd:url"
+                },
+                "context": {
+                    "@id": "oa:Import/context",
+                    "@type": "xsd:url"
+                },
+                "inheritcontext": {
+                    "@id": "oa:Import/inheritcontext",
+                    "@type": "xsd:boolean"
+                },
+                "frame": {
+                    "@id": "oa:Import/frame",
+                    "@type": "xsd:url"
+                }
+            }
+        }
+    }
+}

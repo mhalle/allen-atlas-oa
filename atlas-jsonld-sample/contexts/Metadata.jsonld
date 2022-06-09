@@ -1,7 +1,7 @@
 {
     "@context": {
-        "DataSet": {
-            "@id": "oa:DataSet",
+        "Metadata": {
+            "@id": "oa:Metadata",
             "@type": "@id"
         }
     }

@@ -1,5 +1,4 @@
 {
-    "@context": "https://openanatomy.org/schema.oa.jsonld",
     "@graph": [
         {
             "@id": "#dataRootURL",
@@ -13,7 +12,7 @@
             "url": "atlases/allen_human_3d_v1/compact_label_annotation/"
         },
         {
-            "@id": "#atlasURL_label",
+            "@id": "#atlasURL_labelMap",
             "@type": "URL",
             "baseURL": "#atlasRootURL",
             "url": "annotation.nii.gz"

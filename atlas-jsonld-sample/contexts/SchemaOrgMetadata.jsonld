@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "schema": "http://schema.org/",
+        "SchemaOrgMetadata": {
+            "@id": "oa:SchemaOrgMetadata",
+            "@type": "@id", "@context": { "@vocab": "http://schema.org/" }
+        },
+
+        "schema:Person": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:Organization": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+
+        "schema:DigitalDocument": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:Dataset": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:WebPage": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:WebContent": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+
+        "schema:Role": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+
+        "schema:ScholarlyArticle": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:MedicalScholarlyArticle": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+
+        "schema:Article": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:TechArticle": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:NewsArticle": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:AnatomicalStructure": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:AnatomicalSystem": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}},
+        "schema:MedicalCode": {"@type": "@id", "@context": {"@vocab": "http://schema.org/"}}
+
+
+    }
+}

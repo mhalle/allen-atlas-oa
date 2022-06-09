@@ -1,0 +1,33 @@
+{
+    "@graph": [
+        {
+            "@id": "#atlas",
+            "@type": "Atlas",
+            "atlasFormatVersion": "0.9",
+            "metadata": "#atlasInfo"
+    
+        },
+
+        {"@type": "Import", 
+            "src": [
+            "urls.oa.jsonld",
+            "spaces.oa.jsonld",
+            "allen-nomenclature.oa.jsonld", 
+            "allen-actor-colors.oa.jsonld",
+            "datasources.oa.jsonld",
+            "images.oa.jsonld",
+            "structures.oa.jsonld",
+            "labelmap-shapes.oa.jsonld",
+            "structure-actors.oa.jsonld"
+        ]},
+
+        {
+            "@id": "#atlasInfo",
+            "@type": ["Metadata", "SchemaOrgMetadata"],
+            "name": "Test Allen Mouse Atlas for Cell Locator Project",
+            "license": {
+                "schema:url": "https://slicer.readthedocs.io/en/latest/user_guide/about.html#license"
+            }
+        }
+    ]
+}

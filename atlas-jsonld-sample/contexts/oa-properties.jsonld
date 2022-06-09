@@ -1,0 +1,4 @@
+{
+    "metadata": {"@id": "oa:metadata", "@type": "@id"},
+    "derivedFrom": {"@id": "oa:derivedFrom", "@type": "@id"}
+}

@@ -1,6 +1,5 @@
 {
     "@context": {
-        "oa": "https://www.openanatomy.org/schema/",
         "graphimport": {
             "@id": "oa:graphimport",
             "@type": "@id"

@@ -1,15 +1,12 @@
 {
     "@context": {
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "oa": "https://www.openanatomy.org/schema/",
-        "schema": "http://schema.org/",
         "Actor": {
             "@id": "oa:Actor",
             "@type": "@id",
             "@context": {
-                "visible": {
-                    "@id": "oa:Actor/visible",
-                    "@type": "xsd:boolean"
+                "style": {
+                    "@id": "oa:Actor/style",
+                    "@type": "@id"
                 }
             }
         }

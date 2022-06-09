@@ -1,22 +1,19 @@
 {
     "@context": {
-        "allen": "http://www.brainmap.org/allen/schema/",
-        "schema": "http://schema.org/",
         "AllenAtlasStructure": {
-            "@id": "allen:AllenAtlasStructure",
+            "@id": "allen-schema:AllenAtlasStructure",
             "@type": "@id",
             "@context": {
-                "@base": "http://www.brain-map.org/schema/",
-                "structure_id": "allen:structure_id",
+                "structure_id": "allen-schema:structure_id",
                 "name": "schema:name",
                 "alternativeName": "schema:alternativeName",
-                "acronym": "allen:acronym",
-                "structure_id_path": "allen:structure_id_path",
-                "graph_id": "allen:graph_id",
-                "graph_order": "allen:graph_order",
-                "parent_structure_id": "allen:patent_structure_id",
+                "acronym": "allen-schema:acronym",
+                "structure_id_path": "allen-schema:structure_id_path",
+                "graph_id": "allen-schema:graph_id",
+                "graph_order": "allen-schema:graph_order",
+                "parent_structure_id": "allen-schema:parent_structure_id",
                 "parent_structure": {
-                    "@id": "allen:parent_structure",
+                    "@id": "allen-schema:parent_structure",
                     "@type": "@id"
                 }
             }

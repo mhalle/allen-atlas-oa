@@ -1,6 +1,5 @@
 {
     "@context": {
-        "oa": "https://www.openanatomy.org/schema/",
         "OrderedGroup": {
             "@id": "oa:OrderedGroup",
             "@type": "@id",
