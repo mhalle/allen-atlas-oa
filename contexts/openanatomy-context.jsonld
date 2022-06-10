@@ -19,406 +19,362 @@
       }
     },
     {
-      "@context": {
-        "Actor": {
-          "@id": "oa:Actor",
-          "@type": "@id",
-          "@context": {
-            "style": {
-              "@id": "oa:Actor/style",
-              "@type": "@id"
-            }
+      "Actor": {
+        "@id": "oa:Actor",
+        "@type": "@id",
+        "@context": {
+          "style": {
+            "@id": "oa:Actor/style",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "AllenAtlasStructure": {
-          "@id": "allen-schema:AllenAtlasStructure",
-          "@type": "@id",
-          "@context": {
-            "structure_id": "allen-schema:structure_id",
-            "name": "schema:name",
-            "alternativeName": "schema:alternativeName",
-            "acronym": "allen-schema:acronym",
-            "structure_id_path": "allen-schema:structure_id_path",
-            "graph_id": "allen-schema:graph_id",
-            "graph_order": "allen-schema:graph_order",
-            "parent_structure_id": "allen-schema:parent_structure_id",
-            "parent_structure": {
-              "@id": "allen-schema:parent_structure",
-              "@type": "@id"
-            }
+      "AllenAtlasStructure": {
+        "@id": "allen-schema:AllenAtlasStructure",
+        "@type": "@id",
+        "@context": {
+          "structure_id": "allen-schema:structure_id",
+          "name": "schema:name",
+          "alternativeName": "schema:alternativeName",
+          "acronym": "allen-schema:acronym",
+          "structure_id_path": "allen-schema:structure_id_path",
+          "graph_id": "allen-schema:graph_id",
+          "graph_order": "allen-schema:graph_order",
+          "parent_structure_id": "allen-schema:parent_structure_id",
+          "parent_structure": {
+            "@id": "allen-schema:parent_structure",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "Annotation": {
-          "@id": "oa:Annotation",
-          "@type": "@id"
-        }
+      "Annotation": {
+        "@id": "oa:Annotation",
+        "@type": "@id"
       }
     },
     {
-      "@context": {
-        "Atlas": {
-          "@id": "oa:Atlas",
-          "@type": "@id"
-        }
+      "Atlas": {
+        "@id": "oa:Atlas",
+        "@type": "@id"
       }
     },
     {
-      "@context": {
-        "DataSet": {
-          "@id": "oa:DataSet",
-          "@type": "@id"
-        }
+      "DataSet": {
+        "@id": "oa:DataSet",
+        "@type": "@id"
       }
     },
     {
-      "@context": {
-        "DataSource": {
-          "@id": "oa:DataSource",
-          "@type": "@id",
-          "@context": {
-            "coordinateSpace": {
-              "@id": "oa:coordinateSpace",
-              "@type": "@id"
-            },
-            "dataSource": {
-              "@id": "oa:dataSource",
-              "@type": "@id"
-            }
+      "DataSource": {
+        "@id": "oa:DataSource",
+        "@type": "@id",
+        "@context": {
+          "coordinateSpace": {
+            "@id": "oa:coordinateSpace",
+            "@type": "@id"
+          },
+          "dataSource": {
+            "@id": "oa:dataSource",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "Group": {
-          "@id": "oa:Group",
-          "@type": "@id",
-          "@context": {
-            "members": {
-              "@id": "oa:Group/members",
-              "@type": "@id",
-              "@container": "@set"
-            }
+      "Group": {
+        "@id": "oa:Group",
+        "@type": "@id",
+        "@context": {
+          "members": {
+            "@id": "oa:Group/members",
+            "@type": "@id",
+            "@container": "@set"
           }
         }
       }
     },
     {
-      "@context": {
-        "Image": {
-          "@id": "oa:Image",
-          "@type": "@id"
-        }
+      "Image": {
+        "@id": "oa:Image",
+        "@type": "@id"
       }
     },
     {
-      "@context": {
-        "Import": {
-          "@id": "oa:Import",
-          "@type": "@id",
-          "@context": {
-            "src": {
-              "@id": "oa:Import/src",
-              "@type": "xsd:url"
-            },
-            "context": {
-              "@id": "oa:Import/context",
-              "@type": "xsd:url"
-            },
-            "inheritcontext": {
-              "@id": "oa:Import/inheritcontext",
-              "@type": "xsd:boolean"
-            },
-            "frame": {
-              "@id": "oa:Import/frame",
-              "@type": "xsd:url"
-            }
-          }
-        }
-      }
-    },
-    {
-      "@context": {
-        "LabelMapImage": {
-          "@id": "oa:LabelMapImage",
-          "@type": "@id"
-        },
-        "LabelMaskShape": {
-          "@id": "oa:LabelMaskShape",
-          "@type": "@id",
-          "@context": {
-            "labelValue": "oa:LabelMaskShape/labelValue",
-            "includeLabelValues": {
-              "@id": "oa:LabelMaskShape/includeLabelValues",
-              "@type": "@id",
-              "@container": "@set"
-            },
-            "labelMapImage": {
-              "@id": "oa:LabelMaskShape/labelMapImage",
-              "@type": "@id"
-            }
+      "Import": {
+        "@id": "oa:Import",
+        "@type": "@id",
+        "@context": {
+          "src": {
+            "@id": "oa:Import/src",
+            "@type": "xsd:url"
+          },
+          "context": {
+            "@id": "oa:Import/context",
+            "@type": "xsd:url"
+          },
+          "inheritcontext": {
+            "@id": "oa:Import/inheritcontext",
+            "@type": "xsd:boolean"
+          },
+          "frame": {
+            "@id": "oa:Import/frame",
+            "@type": "xsd:url"
           }
         }
       }
     },
     {
-      "@context": {
-        "Layer": {
-          "@id": "oa:Layer",
-          "@type": "@id"
-        }
-      }
-    },
-    {
-      "@context": {
-        "Metadata": {
-          "@id": "oa:Metadata",
-          "@type": "@id"
-        }
-      }
-    },
-    {
-      "@context": {
-        "NetDataSource": {
-          "@id": "oa:NetDataSource",
-          "@type": "@id",
-          "@context": {
-            "srcURL": {
-              "@id": "oa:NetDataSource/srcURL",
-              "@type": "@id"
-            },
-            "sha256": "oa:sha256"
+      "LabelMapImage": {
+        "@id": "oa:LabelMapImage",
+        "@type": "@id"
+      },
+      "LabelMaskShape": {
+        "@id": "oa:LabelMaskShape",
+        "@type": "@id",
+        "@context": {
+          "labelValue": "oa:LabelMaskShape/labelValue",
+          "includeLabelValues": {
+            "@id": "oa:LabelMaskShape/includeLabelValues",
+            "@type": "@id",
+            "@container": "@set"
+          },
+          "labelMapImage": {
+            "@id": "oa:LabelMaskShape/labelMapImage",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "NiiDataSet": {
-          "@id": "oa:NiiDataSet",
-          "@type": "@id"
-        },
-        "NiiImage": {
-          "@id": "oa:NiiImage",
-          "@type": "@id"
+      "Layer": {
+        "@id": "oa:Layer",
+        "@type": "@id"
+      }
+    },
+    {
+      "Metadata": {
+        "@id": "oa:Metadata",
+        "@type": "@id"
+      }
+    },
+    {
+      "NetDataSource": {
+        "@id": "oa:NetDataSource",
+        "@type": "@id",
+        "@context": {
+          "srcURL": {
+            "@id": "oa:NetDataSource/srcURL",
+            "@type": "@id"
+          },
+          "sha256": "oa:sha256"
         }
       }
     },
     {
-      "@context": {
-        "OrderedGroup": {
-          "@id": "oa:OrderedGroup",
-          "@type": "@id",
-          "@context": {
-            "members": {
-              "@id": "oa:OrderedGroup/members",
-              "@type": "@id",
-              "@container": "@list"
-            }
-          }
-        }
+      "NiiDataSet": {
+        "@id": "oa:NiiDataSet",
+        "@type": "@id"
+      },
+      "NiiImage": {
+        "@id": "oa:NiiImage",
+        "@type": "@id"
       }
     },
     {
-      "@context": {
-        "schema": "http://schema.org/",
-        "SchemaOrgMetadata": {
-          "@id": "oa:SchemaOrgMetadata",
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:Person": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:Organization": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:DigitalDocument": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:Dataset": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:WebPage": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:WebContent": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:Role": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:ScholarlyArticle": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:MedicalScholarlyArticle": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:Article": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:TechArticle": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:NewsArticle": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:AnatomicalStructure": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:AnatomicalSystem": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
-          }
-        },
-        "schema:MedicalCode": {
-          "@type": "@id",
-          "@context": {
-            "@vocab": "http://schema.org/"
+      "OrderedGroup": {
+        "@id": "oa:OrderedGroup",
+        "@type": "@id",
+        "@context": {
+          "members": {
+            "@id": "oa:OrderedGroup/members",
+            "@type": "@id",
+            "@container": "@list"
           }
         }
       }
     },
     {
-      "@context": {
-        "Shape": {
-          "@id": "oa:Shape",
-          "@type": "@id"
+      "schema": "http://schema.org/",
+      "SchemaOrgMetadata": {
+        "@id": "oa:SchemaOrgMetadata",
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:Person": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:Organization": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:DigitalDocument": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:Dataset": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:WebPage": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:WebContent": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:Role": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:ScholarlyArticle": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:MedicalScholarlyArticle": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:Article": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:TechArticle": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:NewsArticle": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:AnatomicalStructure": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:AnatomicalSystem": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
+        }
+      },
+      "schema:MedicalCode": {
+        "@type": "@id",
+        "@context": {
+          "@vocab": "http://schema.org/"
         }
       }
     },
     {
-      "@context": {
-        "CoordinateSpace": {
-          "@id": "oa:CoordinateSpace",
-          "@type": "@id"
-        },
-        "NamedCoordinateSpace": {
-          "@id": "oa:NamedCoordinateSpace",
-          "@type": "@id",
-          "@context": {
-            "name": "schema:name",
-            "identifier": "schema:identifier",
-            "about": "schema:about"
+      "Shape": {
+        "@id": "oa:Shape",
+        "@type": "@id"
+      }
+    },
+    {
+      "CoordinateSpace": {
+        "@id": "oa:CoordinateSpace",
+        "@type": "@id"
+      },
+      "NamedCoordinateSpace": {
+        "@id": "oa:NamedCoordinateSpace",
+        "@type": "@id",
+        "@context": {
+          "name": "schema:name",
+          "identifier": "schema:identifier",
+          "about": "schema:about"
+        }
+      }
+    },
+    {
+      "Structure": {
+        "@id": "oa:Structure",
+        "@type": "@id",
+        "@context": {
+          "name": "schema:name",
+          "annotation": {
+            "@id": "oa:annotation",
+            "@type": "@id"
+          },
+          "shape": {
+            "@id": "oa:shape",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "Structure": {
-          "@id": "oa:Structure",
-          "@type": "@id",
-          "@context": {
-            "name": "schema:name",
-            "annotation": {
-              "@id": "oa:annotation",
-              "@type": "@id"
-            },
-            "shape": {
-              "@id": "oa:shape",
-              "@type": "@id"
-            }
+      "StructureActor": {
+        "@id": "oa:StructureActor",
+        "@type": "@id",
+        "@context": {
+          "structure": {
+            "@id": "oa:structure",
+            "@type": "@id"
           }
         }
       }
     },
     {
-      "@context": {
-        "StructureActor": {
-          "@id": "oa:StructureActor",
-          "@type": "@id",
-          "@context": {
-            "structure": {
-              "@id": "oa:structure",
-              "@type": "@id"
-            }
+      "Style": {
+        "@id": "oa:Style",
+        "@type": "@id",
+        "@context": {
+          "visible": {
+            "@id": "oa:Style/visible",
+            "@type": "xsd:boolean"
+          },
+          "color": {
+            "@id": "oa:Style/color",
+            "@type": "xsd:string"
           }
         }
       }
     },
     {
-      "@context": {
-        "Style": {
-          "@id": "oa:Style",
-          "@type": "@id",
-          "@context": {
-            "visible": {
-              "@id": "oa:Style/visible",
-              "@type": "xsd:boolean"
-            },
-            "color": {
-              "@id": "oa:Style/color",
-              "@type": "xsd:string"
-            }
-          }
-        }
-      }
-    },
-    {
-      "@context": {
-        "URL": {
-          "@id": "oa:URL",
-          "@type": "@id",
-          "@context": {
-            "baseURL": {
-              "@id": "oa:URL/baseURL",
-              "@type": "@id"
-            },
-            "url": {
-              "@id": "oa:URL/url",
-              "@type": "xsd:string"
-            }
+      "URL": {
+        "@id": "oa:URL",
+        "@type": "@id",
+        "@context": {
+          "baseURL": {
+            "@id": "oa:URL/baseURL",
+            "@type": "@id"
+          },
+          "url": {
+            "@id": "oa:URL/url",
+            "@type": "xsd:string"
           }
         }
       }
