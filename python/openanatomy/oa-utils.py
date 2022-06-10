@@ -12,14 +12,27 @@ def dummy():
 
 @app.command()
 def merge_contexts(filenames: List[str]):
-    subcontexts = []
+    accum = []
 
     for filename in filenames:
+
         with open(filename) as fp:
-            subcontexts.append(json.load(fp))
+            c = json.load(fp)
+
+        if isinstance(c, dict):
+            if '@context' in c:
+                dd = c['@context']
+                if isinstance(dd, dict):
+                    accum.append(dd)
+                else:
+                    accum += dd
+            else:
+                accum.append(c)
+        else:
+            accum += c
 
     print(json.dumps({
-        "@context": subcontexts
+        "@context": accum
     }, indent=2))
 
 @app.command()

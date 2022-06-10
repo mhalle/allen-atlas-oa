@@ -5,6 +5,7 @@ from collections import UserDict, UserList
 from urllib.parse import urljoin
 import urllib.request
 import pathlib
+import sys
 
 LastRE = re.compile(r"(\w+)$")
 
@@ -237,7 +238,7 @@ def parse_nodes(nodes):
         for prop, value in n.items():
             if prop == "@type":
                 p['@type'] = [shorten(v) for v in listify(value)]
-                p.fqtype = listify[value]
+                p.fqtype = listify(value)
                 continue
             if prop[0] == "@":
                 p[prop] = n[prop]
@@ -258,16 +259,16 @@ def parse_and_expand(filename, basecontext, importType, basepath=None, context_f
     inheritcontextprop = importType + '/inheritcontext'
     srcbaseprop = importType + '/srcbase'
 
-    this_context = basecontext
-
     if not loader:
         loader = DocumentLoader()
 
+    this_context = basecontext
     if context_filenames:
-        cdata = merge_contexts(context_filenames, filename, loader=loader)
-        this_context = basecontext + cdata if basecontext else cdata
+        cdata = merge_context_files(context_filenames, filename, loader=loader)
+        this_context = merge_contexts([basecontext, cdata]) if basecontext else cdata
     
     ndata = loader.load(filename)
+    # print(json.dumps(this_context, indent=2))
     jld = jsonld.expand(ndata, {"expandContext": this_context})
 
     new_nodes = []
@@ -298,17 +299,40 @@ def parse_and_expand(filename, basecontext, importType, basepath=None, context_f
     return new_nodes
 
 
-def merge_contexts(filenames, base=None, loader=None):
+def merge_context_files(filenames, base=None, loader=None):
     subcontexts = []
     if not loader:
         loader = DocumentLoader()
 
     for filename in filenames:
         filename = urljoin(base, filename) if base else filename
-        subcontexts.append(loader.load(filename))
+        js = loader.load(filename)
 
-    return {"@context": subcontexts}
+        subcontexts.append(js)
 
+    return merge_contexts(subcontexts)
+
+
+def merge_contexts(contexts):
+    accum = []
+
+    for c in contexts:
+        if isinstance(c, dict):
+            if '@context' in c:
+                dd = c['@context']
+                if isinstance(dd, dict):
+                    accum.append(dd)
+                else:                    
+                    accum += dd
+            else:
+                accum.append(c)
+        else:
+            accum += c
+    return {
+        "@context": accum
+        }
+                
+    
 
 class DocumentLoader:
     def __init__(self):
@@ -336,7 +360,7 @@ class Atlas:
         self.loader = DocumentLoader()
 
     def parse_context(self, contextfilenames, contextdir=None):
-        self.oacontext = merge_contexts(contextfilenames, contextdir, loader=self.loader)
+        self.oacontext = merge_context_files(contextfilenames, contextdir, loader=self.loader)
         return self.oacontext
 
     def parse_atlas(self, filename):
@@ -349,7 +373,6 @@ class Atlas:
 def parse_atlas(atlasfilename, oacontextfilenames, contextbase=None):
     atlas = Atlas()
     atlas.parse_context(oacontextfilenames, contextbase)
-
     atlas.parse_atlas(atlasfilename)
     return atlas
 
@@ -358,30 +381,6 @@ if __name__ == "__main__":
     import sys
 
     contextfilenames = [
-        "prefixes.jsonld",
-        "oa-properties.jsonld",
-        "Actor.jsonld",
-        "AllenAtlasStructure.jsonld",
-        "Annotation.jsonld",
-        "Atlas.jsonld",
-        "DataSet.jsonld",
-        "DataSource.jsonld",
-        "Group.jsonld",
-        "Image.jsonld",
-        "Import.jsonld",
-        "LabelMap.jsonld",
-        "License.jsonld",
-        "Layer.jsonld",
-        "Metadata.jsonld",
-        "NetDataSource.jsonld",
-        "Nii.jsonld",
-        "OrderedGroup.jsonld",
-        "SchemaOrgMetadata.jsonld",
-        "Shape.jsonld",
-        "Space.jsonld",
-        "Structure.jsonld",
-        "StructureActor.jsonld",
-        "Style.jsonld",
-        "URL.jsonld",
+        sys.argv[2]
     ]
-    atlas = parse_atlas(sys.argv[1], contextfilenames, sys.argv[2])
+    atlas = parse_atlas(sys.argv[1], contextfilenames)
