@@ -25,6 +25,7 @@
             "@id": "#atlasInfo",
             "@type": ["Metadata", "SchemaOrgMetadata"],
             "name": "Test Allen Mouse Atlas for Cell Locator Project",
+            "description": "This atlas uses colors as specified in the atlas itself",
             "license": {
                 "schema:url": "https://slicer.readthedocs.io/en/latest/user_guide/about.html#license"
             },
