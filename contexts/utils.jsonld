@@ -1,8 +1,0 @@
-{
-    "@context": {
-        "graphimport": {
-            "@id": "oa:graphimport",
-            "@type": "@id"
-        }
-    }
-}
