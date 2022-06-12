@@ -4,7 +4,7 @@ import re
 from collections import UserDict, UserList
 from urllib.parse import urljoin
 import urllib.request
-import pathlib
+import itertools
 import sys
 
 LastRE = re.compile(r"(\w+)$")
@@ -205,12 +205,19 @@ class ValueObject(UserDict):
     def getprop(self, path):
         props = path.split(".")
         node = self
-        for p in props[:-1]:
-            if node[p].hasref:
-                node = node[p].ref
+        for p, pnext in itertools.zip_longest(props, props[1:]):
+            if p[0].isupper(): # already handled in a previous iteration
+                continue
+            if pnext and pnext[0].isupper():
+                node = node[p].reflist.filter(type=pnext)
             else:
                 node = node[p]
-        return node[props[-1]]
+            if not pnext:
+                break
+            if node.hasref:
+                node = node.ref
+
+        return node
 
 
 def get_value_object(v, index):
