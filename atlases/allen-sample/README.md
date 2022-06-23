@@ -1,32 +1,3 @@
-# Working idea for Open Anatomy atlas descriptions
-
-The Open Anatomy atlas data format (OA) is designed to create highly reusable, modular anatomy atlases. The data format itself is very much in flux. This atlas is a working testbed of format ideas.
-
-## Goals and philosophy
-The OA format has a variety of driving concepts and goals:
-* Modularity of atlas elements to promote reuse
-* Encouraging data to be used "at rest" from remote repositories rather than copied
-* Encourage extensibility and "mashups" of data from different sources.
-* Separation of concerns between data, data storage/location, semantic interpretation, and visual representation.
-* Avoid "yet another format" by acting as a container for other data files, thus
-    - Speeding adoption
-    - Reducing development time
-    - Providing interoperability
-* Embrace the web by assuming resources are available across the network and not just in local files
-* Using the web / HTML data model, use explicit URLs to point to resources. 
-* Provide web-addressibility for important pieces of data inside of binary files.
-* Do not assume a particular hierarchy of data, nor use directory/file names to carry information (except for file extensions for file formats).
-* Be version control friendly. Different elements of atlases have different rates of change: source images are large but effectively immutable, label maps and geometry are smaller but can be replaced more often, and metadata and styles are textlike but can change frequently. 
-* Provide mechanisms for attibution at a granular level to allow everyone to get credit for their contributions.
-
-
-## File description
-
-The files here represent a significant extension of previous OA atlas descriptions. Significant work remains. Here is a quick guide to the current structure.
-
-All data is (currently) in JSON-LD format, which extends JSON to allow for more semantic and interlinked descriptions of data. These files assume JSON-LD version 1.1. Note that, unfortunately, JSON-LD has its quirks and challenges. OA uses it basically for its object references, types, and [open world data model](https://en.wikipedia.org/wiki/Open-world_assumption). It is not a design goal, however, to force the use of JSON-LD processors, nor to support all of JSON-LD's complex syntax options. OA uses a subset of JSON-LD to simplify parsing and atlas use.
-
-OA depends on elements (known as nodes in JSON-LD) that have IDs, types, and properties to describe elements of atlases. IDs and types may be explicit (assigned with "@id" and "@type") or implicit (unnamed nodes are called blank nodes in JSON-LD, while types can often be inferred from use).
 
 ## Files
 
