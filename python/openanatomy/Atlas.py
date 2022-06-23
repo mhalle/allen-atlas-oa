@@ -329,7 +329,6 @@ def parse_and_expand(
     ndata = loader.load(filename)
 
     jld = jsonld.expand(ndata, {"expandContext": this_context, "base":'#'})
-    print(json.dumps(jld, indent=2))
 
     new_nodes = []
 
