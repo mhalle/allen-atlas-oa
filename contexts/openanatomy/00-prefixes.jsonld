@@ -2,7 +2,5 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "oa": "https://www.openanatomy.org/schema/",
         "schema": "http://schema.org/",
-        "allen-terms": "http://brain-map.info/cell-locator/ccf-2017/structure#",
-        "allen-schema": "http://brain-map.info/cell-locator/ccf-2017/schema#",
         "cspace": "https://brain-map.info/schema/cspace#"
 }

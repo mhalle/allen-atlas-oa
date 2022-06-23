@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "allen-terms": "http://brain-map.info/cell-locator/ccf-2017/structure#",
+        "allen-schema": "http://brain-map.info/cell-locator/ccf-2017/schema#",
+        "@vocab": "http://brain-map.info/cell-locator/ccf-2017/schema#",
+        "schema": "http://schema.org/",
+        "name": "schema:name",
+        "alternativeName": "schema:alternativeName",
+        "parent_structure": { "@type": "@id" }
+    }
+}

@@ -76,8 +76,7 @@ def add_label_values(index, label_info):
 
 def node_to_jsonld(node, prefix):
     ret = {
-        "@id": prefix + ":" + str(node['id']),
-        "@type": "AllenAtlasStructure",
+        "@id": str(node['id']),
         "structure_id": node['id'],
         "name": node['name'],
         "acronym": node['acronym'],
@@ -88,7 +87,7 @@ def node_to_jsonld(node, prefix):
         "parent_structure_id": node['parent_structure_id'],
     }
     if node['parent_structure_id'] != None:
-       ret['parent_structure'] = prefix + ":" + str(node['parent_structure_id'])
+       ret['parent_structure'] = str(node['parent_structure_id'])
     return ret
 
 
@@ -125,18 +124,23 @@ def wrap_oa_context(nodes, addl=None):
             "@graph": nodes 
         }
 
+def get_allen_structure_annotation(n, prefix):
+        return {
+            '@id': f"#structure_{n['id']}",
+            '@type': ["Structure"],
+            "annotation": f"allen-terms:{n['id']}"
+        }
+def get_allen_structure_annotations(index):
+    return [get_allen_structure_annotation(n, 'allen-index') for n in index.values()]
 
 def get_structures(index):
-    return [get_structure(n, "allen-terms") for n in index.values()]
+    return [get_structure(n) for n in index.values()]
 
 
-def get_structure(n, term_prefix):
+def get_structure(n):
     return {
         '@id': f"#structure_{n['id']}",
-        '@type': ["Structure", "AnatomicStructure"],
-        'name': n['name'],
-        'acronym': n['acronym'],
-        'annotation': f"{term_prefix}:{n['id']}",
+        '@type': ["Structure"],
         "shape": f"#shape_{n['label_value']}"
     }
 
@@ -199,8 +203,10 @@ if __name__ == '__main__':
 
     a = annotation_jsonld(allen_info, "https://brain-map.info/cell-locator/nomenclature/ccf-2017/structures#")
     # print(json.dumps(a, indent=2))
-    print(json.dumps(get_shapes(allen_info), indent=2))
+    # print(json.dumps(get_shapes(allen_info), indent=2))
     # print(json.dumps(get_structures(allen_info), indent=2))
+    print(json.dumps(get_allen_structure_annotations(allen_info), indent=2))
+
     # print(json.dumps(get_actors(allen_info), indent=2))
     # print(json.dumps(get_actor_colors_allen(allen_info), indent=2))
     # print(json.dumps(get_actor_colors_random(allen_info), indent=2))
@@ -215,9 +221,5 @@ if __name__ == '__main__':
     colors_itksnap = []
 
     
-
-
-
-
 
 

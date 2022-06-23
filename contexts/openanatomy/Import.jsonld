@@ -8,16 +8,20 @@
                     "@id": "oa:Import/src",
                     "@type": "xsd:url"
                 },
-                "context": {
-                    "@id": "oa:Import/context",
+                "contextsrc": {
+                    "@id": "oa:Import/contextsrc",
                     "@type": "xsd:url"
+                },
+                "idprefix": {
+                    "@id": "oa:Import/idprefix",
+                    "@type": "xsd:string"
                 },
                 "inheritcontext": {
                     "@id": "oa:Import/inheritcontext",
                     "@type": "xsd:boolean"
                 },
-                "frame": {
-                    "@id": "oa:Import/frame",
+                "framesrc": {
+                    "@id": "oa:Import/framesrc",
                     "@type": "xsd:url"
                 }
             }

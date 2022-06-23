@@ -4,8 +4,6 @@
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "oa": "https://www.openanatomy.org/schema/",
       "schema": "http://schema.org/",
-      "allen-terms": "http://brain-map.info/cell-locator/ccf-2017/structure#",
-      "allen-schema": "http://brain-map.info/cell-locator/ccf-2017/schema#",
       "cspace": "https://brain-map.info/schema/cspace#"
     },
     {
@@ -25,26 +23,6 @@
         "@context": {
           "style": {
             "@id": "oa:Actor/style",
-            "@type": "@id"
-          }
-        }
-      }
-    },
-    {
-      "AllenAtlasStructure": {
-        "@id": "allen-schema:AllenAtlasStructure",
-        "@type": "@id",
-        "@context": {
-          "structure_id": "allen-schema:structure_id",
-          "name": "schema:name",
-          "alternativeName": "schema:alternativeName",
-          "acronym": "allen-schema:acronym",
-          "structure_id_path": "allen-schema:structure_id_path",
-          "graph_id": "allen-schema:graph_id",
-          "graph_order": "allen-schema:graph_order",
-          "parent_structure_id": "allen-schema:parent_structure_id",
-          "parent_structure": {
-            "@id": "allen-schema:parent_structure",
             "@type": "@id"
           }
         }
@@ -112,16 +90,19 @@
             "@id": "oa:Import/src",
             "@type": "xsd:url"
           },
-          "context": {
-            "@id": "oa:Import/context",
+          "contextsrc": {
+            "@id": "oa:Import/contextsrc",
             "@type": "xsd:url"
+          },
+          "idprefix": {
+            "@id": "oa:Import/idprefix"
           },
           "inheritcontext": {
             "@id": "oa:Import/inheritcontext",
             "@type": "xsd:boolean"
           },
-          "frame": {
-            "@id": "oa:Import/frame",
+          "framesrc": {
+            "@id": "oa:Import/framesrc",
             "@type": "xsd:url"
           }
         }
