@@ -9,10 +9,8 @@ import sys
 
 LastRE = re.compile(r"(\w+)$")
 
-
 def shorten(url):
     return LastRE.search(url).group(1)
-
 
 def match_values_filter(o, m):
     for k in m.keys():
@@ -20,14 +18,12 @@ def match_values_filter(o, m):
             return False
     return True
 
-
 def match_ids_filter(o, m):
     for k in m.keys():
         if o.getprop(k).id != m[k]:
             return False
 
     return True
-
 
 class ValueList(UserList):
     def __init__(self, *args, index=None, **kwargs):
@@ -119,7 +115,15 @@ class ValueList(UserList):
                 r.append(n[prop])
         return r
 
-    def filter(self, filter=None, type="", fqtype="", match_values=None, match_ids=None, id=None):
+    def filter(
+        self,
+        filter=None,
+        type="",
+        fqtype="",
+        match_values=None,
+        match_ids=None,
+        id=None,
+    ):
         result = self
         if filter:
             result = ValueList(v.ref for v in result if filter(v.ref))
@@ -175,8 +179,16 @@ class ValueObject(UserDict):
         return self["@language"]
 
     @property
+    def haslanguage(self):
+        return "@language" in self
+
+    @property
     def type(self):
         return self["@type"]
+
+    @property
+    def hastype(self):
+        return "@type" in self
 
     @property
     def valuelist(self):
@@ -206,7 +218,7 @@ class ValueObject(UserDict):
         props = path.split(".")
         node = self
         for p, pnext in itertools.zip_longest(props, props[1:]):
-            if p[0].isupper(): # already handled in a previous iteration
+            if p[0].isupper():  # already handled in a previous iteration
                 continue
             if pnext and pnext[0].isupper():
                 node = node[p].reflist.filter(type=pnext)
@@ -219,6 +231,29 @@ class ValueObject(UserDict):
 
         return node
 
+    def hasprop(self, path):
+        props = path.split(".")
+        node = self
+        for p, pnext in itertools.zip_longest(props, props[1:]):
+            if p[0].isupper():  # already handled in a previous iteration
+                continue
+            if pnext and pnext[0].isupper():
+                try:
+                    node = node[p].reflist.filter(type=pnext)
+                except KeyError:
+                    return False
+            else:
+                try:
+                    node = node[p]
+                except KeyError:
+                    return False
+            if not pnext:
+                break
+            if node.hasref:
+                node = node.ref
+
+        return True
+
 
 def get_value_object(v, index):
     if isinstance(v, dict):
@@ -229,6 +264,7 @@ def get_value_object(v, index):
 
 def listify(t):
     return t if isinstance(t, list) else [t] if t else []
+
 
 def parse_nodes(nodes):
     index = {}
@@ -244,7 +280,7 @@ def parse_nodes(nodes):
         p = pindex[n["@id"]]
         for prop, value in n.items():
             if prop == "@type":
-                p['@type'] = [shorten(v) for v in listify(value)]
+                p["@type"] = [shorten(v) for v in listify(value)]
                 p.fqtype = listify(value)
                 continue
             if prop[0] == "@":
@@ -259,12 +295,25 @@ def parse_nodes(nodes):
 def jsonld_to_nodes(jld):
     return jsonld.flatten(jsonld.expand(jld), {}, {"compactArrays": False})
 
-def parse_and_expand(filename, basecontext, importType, basepath=None, context_filenames=None, loader=None):
+
+
+
+
+def parse_and_expand(
+    filename,
+    basecontext,
+    importType,
+    context_filenames=None,
+    idprefix=None,
+    loader=None,
+):
+    # import property names are all suffixes of the import type
     srcprop = importType + "/src"
-    ctxprop = importType + "/context"
-    frameprop = importType + "/frame"
-    inheritcontextprop = importType + '/inheritcontext'
-    srcbaseprop = importType + '/srcbase'
+    ctxprop = importType + "/contextsrc"
+    frameprop = importType + "/framesrc"
+    idprefixprop = importType + "/idprefix"
+    inheritcontextprop = importType + "/inheritcontext"
+    srcbaseprop = importType + "/srcbase"
 
     if not loader:
         loader = DocumentLoader()
@@ -273,35 +322,52 @@ def parse_and_expand(filename, basecontext, importType, basepath=None, context_f
     if context_filenames:
         cdata = merge_context_files(context_filenames, filename, loader=loader)
         this_context = merge_contexts([basecontext, cdata]) if basecontext else cdata
-    
+    if idprefix:
+        prefix_context = {"@base": idprefix}
+        this_context = merge_contexts([this_context, prefix_context])
+        
     ndata = loader.load(filename)
-    # print(json.dumps(this_context, indent=2))
-    jld = jsonld.expand(ndata, {"expandContext": this_context})
+
+    jld = jsonld.expand(ndata, {"expandContext": this_context, "base":'#'})
+    print(json.dumps(jld, indent=2))
 
     new_nodes = []
 
     for node in jld:
-        if not importType in node["@type"]:
+        if not "@type" in node or not importType in node["@type"]:
             new_nodes.append(node)
             continue
 
         # handle import
+        
         if basecontext:
-            src = [x['@value'] for x in node[srcprop]] if srcprop in node else []
-            ctx = [x['@value'] for x in node[ctxprop]] if ctxprop in node else []
-            frame = [x['@value'] for x in node[frameprop]] if frameprop in node else []
-            inheritcontext = node[inheritcontextprop][0]['value'] if inheritcontextprop in node else True
-            srcbase = [x['@value'] for x in node[srcbaseprop]] if srcbaseprop in node else None
+            # only look for imports if using open anatomy semantics.
+            src = [x["@value"] for x in node[srcprop]] if srcprop in node else []
+            ctx = [x["@value"] for x in node[ctxprop]] if ctxprop in node else []
+            idprefix = node[idprefixprop][0]["@value"] if idprefixprop in node else None
+            # frame = [x["@value"] for x in node[frameprop]] if frameprop in node else []
+            inheritcontext = ( node[inheritcontextprop][0]["@value"]
+                    if inheritcontextprop in node else True
+            )
+            srcbase = (
+                [x["@value"] for x in node[srcbaseprop]]
+                if srcbaseprop in node
+                else None
+            )
 
             if srcbase:
                 srcbase = urljoin(filename, srcbase)
             for s in src:
                 import_filename = urljoin(srcbase if srcbase else filename, s)
                 importnodes = parse_and_expand(
-                    import_filename, this_context if inheritcontext else None, importType, ctx, loader=loader
-            )
+                    import_filename,
+                    this_context if inheritcontext else None,
+                    importType,
+                    ctx,
+                    loader=loader,
+                    idprefix=idprefix
+                )
                 new_nodes += importnodes
-                
 
     return new_nodes
 
@@ -325,21 +391,18 @@ def merge_contexts(contexts):
 
     for c in contexts:
         if isinstance(c, dict):
-            if '@context' in c:
-                dd = c['@context']
+            if "@context" in c:
+                dd = c["@context"]
                 if isinstance(dd, dict):
                     accum.append(dd)
-                else:                    
+                else:
                     accum += dd
             else:
                 accum.append(c)
         else:
             accum += c
-    return {
-        "@context": accum
-        }
-                
-    
+    return {"@context": accum}
+
 
 class DocumentLoader:
     def __init__(self):
@@ -367,14 +430,16 @@ class Atlas:
         self.loader = DocumentLoader()
 
     def parse_context(self, contextfilenames, contextdir=None):
-        self.oacontext = merge_context_files(contextfilenames, contextdir, loader=self.loader)
+        self.oacontext = merge_context_files(
+            contextfilenames, contextdir, loader=self.loader
+        )
         return self.oacontext
 
     def parse_atlas(self, filename):
         merged = parse_and_expand(filename, self.oacontext, self.oaschema + "Import", loader=self.loader)
         flattened = jsonld.flatten(merged, {}, {"compactArrays": False})
-        self.raw_nodes = flattened["@graph"]
-        self.nodes = parse_nodes(self.raw_nodes)
+        self.fqnodes = flattened['@graph'] if '@graph' in flattened else flattened
+        self.nodes = parse_nodes(self.fqnodes)
 
 
 def parse_atlas(atlasfilename, oacontextfilenames, contextbase=None):
@@ -383,11 +448,8 @@ def parse_atlas(atlasfilename, oacontextfilenames, contextbase=None):
     atlas.parse_atlas(atlasfilename)
     return atlas
 
-
 if __name__ == "__main__":
     import sys
 
-    contextfilenames = [
-        sys.argv[2]
-    ]
+    contextfilenames = [sys.argv[2]]
     atlas = parse_atlas(sys.argv[1], contextfilenames)
