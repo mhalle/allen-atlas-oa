@@ -296,9 +296,6 @@ def jsonld_to_nodes(jld):
     return jsonld.flatten(jsonld.expand(jld), {}, {"compactArrays": False})
 
 
-
-
-
 def parse_and_expand(
     filename,
     basecontext,
