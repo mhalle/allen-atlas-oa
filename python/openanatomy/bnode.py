@@ -5,36 +5,27 @@ def get_uuid_id():
     return f'urn:uuid:{uuid4()}'
 
 
-def convert_bnodes_to_uuids(index, nodes=None, bnode_mapping=None):
+def convert_bnodes_to_uuids(nodes, bnode_mapping=None):
     # the graph are flattened, so every node is in the index.
     # As a result, all the nodes have their ids in the index.
     # Start by creating the mapping of old to new ids. 
     # only do this if passed the index with no nodes, otherwise
     # this is a recursive call.
 
-    cleanup_index = False
     if bnode_mapping == None:
-        cleanup_index = True
         bnode_mapping = {}
-        for id in index:
+        for n in nodes:
+            id = n['@id']
             if id.startswith(BNODE_PREFIX):
                 bnode_mapping[id] = get_uuid_id()
     
         if not len(bnode_mapping):
-            return index
-
-    if nodes == None:
-        nodes = index.values()
-        
-    nnodes = nodes if nodes else index.values()
+            return nodes
     
     # go hunting for bnode references in the graph, mutating the graph and nodes
-    toindex = []
-
-    for n in nnodes:
+    for n in nodes:
         try:
             n['@id'] = bnode_mapping[n['@id']]
-            toindex.append(n)
         except (KeyError, TypeError):
             pass
         for p, v in n.items():
@@ -62,13 +53,6 @@ def convert_bnodes_to_uuids(index, nodes=None, bnode_mapping=None):
                     continue
 
                 # process @list
-                convert_bnodes_to_uuids(index, listv, bnode_mapping)
+                convert_bnodes_to_uuids(listv, bnode_mapping)
 
-    if cleanup_index:
-        # cleanup old references in the index
-        for oldid in bnode_mapping:
-            del index[oldid]
-        # and add new nodes to index
-        for n in toindex:
-            index[n['@id']] = n
-    return index
+    return nodes
