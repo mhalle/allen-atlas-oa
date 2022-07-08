@@ -23,6 +23,10 @@
                 "framesrc": {
                     "@id": "oa:Import/framesrc",
                     "@type": "xsd:url"
+                },
+                "defaulttype": {
+                    "@id": "oa:Import/defaulttype",
+                    "@type": "@id"
                 }
             }
         }

@@ -25,7 +25,7 @@ def match_ids_filter(o, m):
 
     return True
 
-class ValueList(UserList):
+class ValueList(list):
     def __init__(self, *args, index=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.index = index
@@ -162,7 +162,7 @@ class ValueList(UserList):
         return result
 
 
-class ValueObject(UserDict):
+class ValueObject(dict):
     def __init__(self, *args, index=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.index = index
@@ -303,6 +303,7 @@ def parse_and_expand(
     context_filenames=None,
     idprefix=None,
     loader=None,
+    defaulttype = None
 ):
     # import property names are all suffixes of the import type
     srcprop = importType + "/src"
@@ -311,6 +312,7 @@ def parse_and_expand(
     idprefixprop = importType + "/idprefix"
     inheritcontextprop = importType + "/inheritcontext"
     srcbaseprop = importType + "/srcbase"
+    defaulttypeprop = importType + "/defaulttype"
 
     if not loader:
         loader = DocumentLoader()
@@ -330,7 +332,17 @@ def parse_and_expand(
     new_nodes = []
 
     for node in jld:
-        if not "@type" in node or not importType in node["@type"]:
+        if not importType in node["@type"]:
+            new_nodes.append(node)
+            continue
+
+        if not "@type" in node:
+            if defaulttype:
+                node['@type'] = defaulttype
+            new_nodes.append(node)
+            continue
+
+        if not importType in node["@type"]:
             new_nodes.append(node)
             continue
 
@@ -341,6 +353,9 @@ def parse_and_expand(
             src = [x["@value"] for x in node[srcprop]] if srcprop in node else []
             ctx = [x["@value"] for x in node[ctxprop]] if ctxprop in node else []
             idprefix = node[idprefixprop][0]["@value"] if idprefixprop in node else None
+            defaulttype = ([x['@id'] for x in node[defaulttypeprop]["@id"]]
+                                 if defaulttype in node else None)
+
             # frame = [x["@value"] for x in node[frameprop]] if frameprop in node else []
             inheritcontext = ( node[inheritcontextprop][0]["@value"]
                     if inheritcontextprop in node else True
@@ -361,7 +376,8 @@ def parse_and_expand(
                     importType,
                     ctx,
                     loader=loader,
-                    idprefix=idprefix
+                    idprefix=idprefix,
+                    defaulttype=defaulttype
                 )
                 new_nodes += importnodes
 
