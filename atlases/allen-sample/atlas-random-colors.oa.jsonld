@@ -1,10 +1,10 @@
 {
     "@graph": [
         {
-            "@id": "#atlas",
+            "@id": "atlas",
             "@type": "Atlas",
             "atlasFormatVersion": "0.9",
-            "metadata": "#atlasInfo"
+            "metadata": "atlasInfo"
         },
         {
             "@type": "Import",
@@ -20,7 +20,7 @@
             "src": [
                 "urls.oa.jsonld",
                 "spaces.oa.jsonld",
-                "allen-actor-colors.oa.jsonld",
+                "random-actor-colors.oa.jsonld",
                 "datasources.oa.jsonld",
                 "images.oa.jsonld",
                 "structures.oa.jsonld",

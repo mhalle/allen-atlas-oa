@@ -100,11 +100,11 @@ def annotation_jsonld(index, schema_url):
 
 def get_shape(n):
     return {
-            "@id": f'#shape_{n["label_value"]}',
+            "@id": f'shape_{n["label_value"]}',
             "@type": ["Shape", "LabelMaskShape"],
             "labelValue": n['label_value'],
             "includeLabelValues": sorted(n['label_values']),
-            "labelMapImage": '#atlasLabelMap'
+            "labelMapImage": 'atlasLabelMap'
         }
 
 def get_shapes(index):
@@ -126,7 +126,7 @@ def wrap_oa_context(nodes, addl=None):
 
 def get_allen_structure_annotation(n, prefix):
         return {
-            '@id': f"#structure_{n['id']}",
+            '@id': f"structure_{n['id']}",
             '@type': ["Structure"],
             "annotation": f"allen-terms:{n['id']}"
         }
@@ -139,19 +139,19 @@ def get_structures(index):
 
 def get_structure(n):
     return {
-        '@id': f"#structure_{n['id']}",
+        '@id': f"structure_{n['id']}",
         '@type': ["Structure"],
-        "shape": f"#shape_{n['label_value']}"
+        "shape": f"shape_{n['label_value']}"
     }
 
 def get_actors(index):
     ret = []
     for n in index.values():
         r = {
-            "@id": f"#actor_{n['id']}",
+            "@id": f"actor_{n['id']}",
             "@type": ["Actor", "StructureActor"],
             'name': n['name'],
-            "structure": f"#structure_{n['id']}"
+            "structure": f"structure_{n['id']}"
         }
         ret.append(r)
     return wrap_oa_context(ret)
@@ -161,11 +161,11 @@ def get_actor_colors_allen(index):
     ret = []
     for n in index.values():
         r = {
-            "@id": f"#actor_{n['id']}",
+            "@id": factor_{n['id']}",
             "@type": "Actor",
             "style": {
                 "@type": "Style",
-                "color": f"#{n['color_hex_triplet']}"
+                "color": f"{n['color_hex_triplet']}"
             }
         }
         ret.append(r)
@@ -176,7 +176,7 @@ def get_actor_colors_random(index):
     for n in index.values():
         color = n['random_color']
         r = {
-            "@id": f"#actor_{n['id']}",
+            "@id": f"actor_{n['id']}",
             "@type": "Actor",
             "style": {
                 "@type": "Style",

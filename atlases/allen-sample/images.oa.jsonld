@@ -7,28 +7,28 @@
     "@graph": [
         { "@comment": "Images." },
         {
-            "@id": "#templateImage_t1",
+            "@id": "templateImage_t1",
             "@type": ["DataSource", "Image", "NiiImage"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
-            "imageSource": "#templateNii_t1"
+            "imageSource": "templateNii_t1"
         },
         {
-            "@id": "#templateImage_t2",
+            "@id": "templateImage_t2",
             "@type": ["DataSource", "Image", "NiiImage"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
-            "imageSource": "#templateNii_t2"
+            "imageSource": "templateNii_t2"
         },
         {
-            "@id": "#templateImage_pd",
+            "@id": "templateImage_pd",
             "@type": ["DataSource", "Image", "NiiImage"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
-            "imageSource": "#templateNii_pd"
+            "imageSource": "templateNii_pd"
         },
         {
-            "@id": "#atlasLabelMap",
+            "@id": "atlasLabelMap",
             "@type": ["DataSource", "Image", "LabelMapImage", "NiiImage"],
             "coordinateSpace": "cspace:mni_icbm152_nlin_sym_09b",
-            "derivedFrom": ["#templateImage_t1", "#templateImage_t2", "#templateImage_pd"],
+            "derivedFrom": ["templateImage_t1", "templateImage_t2", "templateImage_pd"],
             "imageSource": "#atlasNii_labelMap"
         } 
     ]

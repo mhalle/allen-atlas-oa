@@ -1,44 +1,44 @@
 {
     "@graph": [
         {
-            "@id": "#dataRootURL",
+            "@id": "dataRootURL",
             "@type": "URL",
             "url": ""
         },
         {
-            "@id": "#atlasRootURL",
+            "@id": "atlasRootURL",
             "@type": "URL",
-            "baseURL": "#dataRootURL",
+            "baseURL": "dataRootURL",
             "url": "atlases/allen_human_3d_v1/compact_label_annotation/"
         },
         {
-            "@id": "#atlasURL_labelMap",
+            "@id": "atlasURL_labelMap",
             "@type": "URL",
-            "baseURL": "#atlasRootURL",
+            "baseURL": "atlasRootURL",
             "url": "annotation.nii.gz"
         },
         {
-            "@id": "#templateBaseURL",
+            "@id": "templateBaseURL",
             "@type": "URL",
-            "baseURL": "#dataRootURL",
+            "baseURL": "dataRootURL",
             "url": "templates/"
         },
         {
-            "@id": "#templateURL_t1",
+            "@id": "templateURL_t1",
             "@type": "URL",
-            "baseURL": "#templateBaseURL",
+            "baseURL": "templateBaseURL",
             "url": "t1/mni_icbm152_t1_tal_nlin_sym_09b_hires.nii"
         },
         {
-            "@id": "#templateURL_t2",
+            "@id": "templateURL_t2",
             "@type": "URL",
-            "baseURL": "#templateBaseURL",
+            "baseURL": "templateBaseURL",
             "url": "t2/mni_icbm152_t2_tal_nlin_sym_09b_hires.nii"
         },
         {
-            "@id": "#templateURL_pd",
+            "@id": "templateURL_pd",
             "@type": "URL",
-            "baseURL": "#templateBaseURL",
+            "baseURL": "templateBaseURL",
             "url": "pd/mni_icbm152_pd_tal_nlin_sym_09b_hires.nii"
         }
     ]

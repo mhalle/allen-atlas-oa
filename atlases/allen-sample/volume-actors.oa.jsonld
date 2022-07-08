@@ -1,9 +1,9 @@
 {
     "@graph": [
       {
-          "@id": "#imageActor_t1",
+          "@id": "imageActor_t1",
           "@type": ["Actor", "ImageActor"],
-          "image": "#templateImage_t1",
+          "image": "templateImage_t1",
           "style": {
               "imageContrast": {
                   "window": 255,
@@ -12,9 +12,9 @@
           }
       },
       {
-        "@id": "#imageActor_t3",
+        "@id": "imageActor_t3",
         "@type": ["Actor", "ImageActor"],
-        "image": "#templateImage_t3",
+        "image": "templateImage_t3",
         "style": {
             "imageContrast": {
                 "window": 255,
@@ -23,9 +23,9 @@
         }
     },
     {
-        "@id": "#imageActor_t1",
+        "@id": "imageActor_t1",
         "@type": ["Actor", "ImageActor"],
-        "image": "#templateImage_pd",
+        "image": "templateImage_pd",
         "style": {
             "imageContrast": {
                 "window": 255,
