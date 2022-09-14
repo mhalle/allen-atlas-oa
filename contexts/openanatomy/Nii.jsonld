@@ -7,6 +7,17 @@
         "NiiImage": {
             "@id": "oa:NiiImage",
             "@type": "@id"
+        },
+        "NiiCoordinateSpace": {
+            "@id": "oa:NiiCoordinateSpace",
+            "@type": "@id",
+            "@context": {
+                "transformType": {
+                    "@id": "oa:NiiCoordinateSpace/transformType",
+                    "@type": "xsd:string"
+                }
+
+            }
         }
     }
 }
