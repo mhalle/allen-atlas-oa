@@ -10,7 +10,7 @@ topdir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 from openanatomy import parse_atlas
 
-SampleAtlas = urljoin(topdir, "atlases/ccf-2017/atlas.oa.json")
+SampleAtlas = urljoin(topdir, "atlases/ccf-2017/atlas.oa.jsonld")
 Context = urljoin(topdir, "contexts/openanatomy-context.jsonld")
 
 if __name__ == "__main__":
